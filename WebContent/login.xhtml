@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:decorate template="/template.xhtml">
+
+	<ui:define name="menu">
+		<p:submenu label="Menu Principal">
+			<p:menuitem value="Home" icon="ui-icon-home" action="index"
+				rendered="#{loginController.isLogged()}" />
+
+			<p:menuitem value="Solicitar Acesso" icon="ui-icon-key"
+				action="add_usuario" />
+			<p:menuitem value="Módulo Visitante" icon="ui-icon-person" />
+			<p:menuitem value="Termos de Uso" icon="ui-icon-book" />
+
+		</p:submenu>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<h:form id="formLogin" rendered="#{not loginController.isLogged()}">
+
+			<h:panelGrid id="loginGrid" columns="3" cellpadding="4">
+
+				<h:outputText value="Email: " />
+				<p:inputText id="username" value="#{loginController.usuario.email}"
+					required="true" label="Email" />
+				<p:message for="username" display="email" />
+
+				<h:outputText value="Senha: " />
+				<p:password id="pwd" value="#{loginController.usuario.senha}"
+					required="true" label="Senha" />
+				<p:message for="pwd" display="senha" />
+
+			</h:panelGrid>
+
+			<p:commandButton value="Ok" action="#{loginController.checkLogin()}"
+				update="loginGrid" />
+			<p:commandButton value="Limpar" immediate="true" />
+			<br />
+			<br />
+			<br />
+			<p:messages id="messages" autoUpdate="true" closable="true" />
+		</h:form>
+	</ui:define>
+
+</ui:decorate>
+
+</html>

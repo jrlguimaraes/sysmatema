@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:outputLabel value="add reserva" />
+
+<!-- 
+<ui:decorate template="/template.xhtml">
+
+	<ui:define name="cabecalho">
+		<small>Mostrar Informações do usuário logado.</small>
+	</ui:define>
+
+
+	<ui:define name="menu">
+		<p:submenu label="Menu">
+			<p:menuitem value="Visualizar Agenda" icon="ui-icon-contact" />
+		</p:submenu>
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h:form>
+			<p:wizard>
+				<p:tab id="space" title="Reserva Espaço Fisico">
+					<p:growl id="messages" showDetail="true" />
+
+					<p:schedule id="schedule" value="#{scheduleController.eventModel}"
+						widgetVar="myschedule" locale="pt">
+
+						<p:ajax event="dateSelect"
+							listener="#{scheduleController.onDateSelect}"
+							update="eventDetails" oncomplete="PF('eventDialog').show()" />
+						<p:ajax event="eventSelect"
+							listener="#{scheduleController.onEventSelect}"
+							update="eventDetails" oncomplete="PF('eventDialog').show()" />
+
+					</p:schedule>
+
+					<p:dialog widgetVar="eventDialog" header="Event Details"
+						showEffect="clip" hideEffect="clip">
+						<h:panelGrid id="eventDetails" columns="2">
+							<h:outputLabel for="title" value="Titulo:" />
+							<p:selectOneMenu id="title" label="Titulo"
+								value="#{scheduleController.event.title}" required="true">
+								<f:selectItem itemLabel="Selecione" itemValue="" />
+								<f:selectItem itemLabel="Reservar Anfiteatro"
+									itemValue="Anfiteatro" />
+								<f:selectItem itemLabel="Reservar Laboratório de Informática"
+									itemValue="Laboratório de Informática" />
+								<f:selectItem itemLabel="Reservar Laboratório de Ensino"
+									itemValue="Laboratório de Ensino" />
+								<f:selectItem itemLabel="Reservar de Sala de Seminário"
+									itemValue="Sala de Seminário" />
+							</p:selectOneMenu>
+
+							<h:outputLabel for="descricao" value="Descrição de Uso:" />
+							<p:inputTextarea id="descricao" label="Descrição de Uso"
+								value="#{scheduleController.descricao.descricao}"
+								required="true" />
+
+							<h:outputLabel for="from" value="Data/Hora Inico:" />
+							<p:calendar id="from"
+								value="#{scheduleController.event.startDate}" timeZone="GMT-3"
+								pattern="dd/MM/yyyy HH:mm" showButtonPanel="true" />
+
+							<h:outputLabel for="to" value="Data/Hora Fim:" />
+							<p:calendar id="to" value="#{scheduleController.event.endDate}"
+								timeZone="GMT-3" pattern="dd/MM/yyyy HH:mm"
+								showButtonPanel="true" />
+
+							<h:outputLabel for="allDay" value="É o dia Todo?:" />
+							<h:selectBooleanCheckbox id="allDay"
+								value="#{scheduleController.event.allDay}" />
+
+							<p:commandButton type="reset" value="Resetar" />
+							<p:commandButton id="addButton" value="Salvar"
+								actionListener="#{scheduleController.addEvent}"
+								oncomplete="PF('myschedule').update();PF('eventDialog').hide();"
+								update="messages" />
+
+
+						</h:panelGrid>
+
+
+
+					</p:dialog>
+
+					<h:outputText value="Deseja também reservar EQUIPAMENTOS? " />
+					<h:selectBooleanCheckbox value="#{scheduleController.addEquipment}" />
+
+
+				</p:tab>
+
+				<p:tab id="equipment" title="Reserva Equipamento">
+					<h:form id="equipment2">
+						<p:growl id="messages" showDetail="true" />
+
+						<p:schedule id="schedule2"
+							value="#{scheduleController.eventModel}" widgetVar="myschedule"
+							locale="pt">
+
+							<p:ajax event="dateSelect"
+								listener="#{scheduleController.onDateSelect}"
+								update="eventDetails" oncomplete="PF('eventDialog').show()" />
+							<p:ajax event="eventSelect"
+								listener="#{scheduleController.onEventSelect}"
+								update="eventDetails" oncomplete="PF('eventDialog').show()" />
+
+						</p:schedule>
+
+						<p:dialog widgetVar="eventDialog" header="Event Details"
+							showEffect="clip" hideEffect="clip">
+							<h:panelGrid id="eventDetails" columns="2">
+								<h:outputLabel for="title" value="Titulo:" />
+								<p:selectOneMenu id="title" label="Titulo"
+									value="#{scheduleController.event.title}" required="true">
+									<f:selectItem itemLabel="Selecione" itemValue="" />
+									<f:selectItem itemLabel="CAMERA" itemValue="Anfiteatro" />
+									<f:selectItem itemLabel="PROJETOR MULTIMEDIA 1" itemValue="X1" />
+									<f:selectItem itemLabel="PROJETOR MULTIMEDIA 2" itemValue="X2" />
+									<f:selectItem itemLabel="PROJETOR MULTIMEDIA 3" itemValue="X3" />
+									<f:selectItem itemLabel="TRIPÉ 1" itemValue="X4" />
+									<f:selectItem itemLabel="TRIPÉ 2" itemValue="X5" />
+								</p:selectOneMenu>
+
+								<h:outputLabel for="descricao" value="Descrição de Uso:" />
+								<p:inputTextarea id="descricao" label="Descrição de Uso"
+									value="#{scheduleController.descricao.descricao}"
+									required="true" />
+
+								<h:outputLabel for="from" value="Data/Hora Inico:" />
+								<p:calendar id="from"
+									value="#{scheduleController.event.startDate}" timeZone="GMT-3"
+									pattern="dd/MM/yyyy HH:mm" showButtonPanel="true" />
+
+								<h:outputLabel for="to" value="Data/Hora Fim:" />
+								<p:calendar id="to" value="#{scheduleController.event.endDate}"
+									timeZone="GMT-3" pattern="dd/MM/yyyy HH:mm"
+									showButtonPanel="true" />
+
+								<h:outputLabel for="allDay" value="É o dia Todo?:" />
+								<h:selectBooleanCheckbox id="allDay"
+									value="#{scheduleController.event.allDay}" />
+
+								<p:commandButton type="reset" value="Resetar" />
+								<p:commandButton id="addButton" value="Salvar"
+									actionListener="#{scheduleController.addEvent}"
+									oncomplete="PF('myschedule').update();PF('eventDialog').hide();"
+									update="messages" />
+
+							</h:panelGrid>
+
+						</p:dialog>
+
+
+
+					</h:form>
+				</p:tab>
+
+
+
+				<p:tab id="confirm" title="Confirmação">
+					<p>Mostra lista com reservas</p>
+					<p>lista de espaço</p>
+					<p>e lista equipamentos</p>
+
+
+
+					<p:commandButton value="CONFIRMAR" />
+					<p:commandButton value="ESQUEÇA VOU TORMAR CAFÉ" />
+
+				</p:tab>
+
+
+
+
+			</p:wizard>
+
+
+
+		</h:form>
+	</ui:define>
+
+</ui:decorate>
+ -->
+</html>

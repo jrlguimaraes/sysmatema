@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:decorate template="/template.xhtml">
+
+	<ui:define name="cabecalho">
+		<small>Mostrar Informações do usuário logado.</small>
+	</ui:define>
+
+	<ui:define name="menu">
+		<p:submenu label="Menu">
+			<p:menuitem value="ITEM DE MENU" icon="ui-icon-contact" />
+		</p:submenu>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<h:form>
+			<p:growl autoUpdate="true" />
+
+			<p:dataTable id="tabelaEquipamentos"
+				value="#{equipamentoController.equipamentos}" var="equipamentos"
+				emptyMessage="Sem Equipamentos Cadastrados" paginator="true"
+				rows="5"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15">
+
+				<f:facet name="header">
+					Equipamentos
+				</f:facet>
+
+				<p:column>
+					<f:facet name="header">ID</f:facet>
+					<h:outputText value="#{equipamentos.id}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">Marca</f:facet>
+					<h:outputText value="#{equipamentos.marca}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">Modelo</f:facet>
+					<h:outputText value="#{equipamentos.modelo}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">Actions</f:facet>
+
+					<p:commandButton icon="ui-icon-pencil">
+					</p:commandButton>
+
+					<p:commandButton icon="ui-icon-note">
+					</p:commandButton>
+
+					<p:column>
+						<p:spacer width="80" height="10" />
+					</p:column>
+
+					<p:commandButton icon="ui-icon-minus">
+					</p:commandButton>
+
+
+				</p:column>
+
+			</p:dataTable>
+
+		</h:form>
+
+		<p:separator />
+
+	</ui:define>
+
+</ui:decorate>
+</html>

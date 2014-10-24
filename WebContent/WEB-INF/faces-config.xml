@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+ <navigation-rule>
+  <!-- LOGIN -->
+  <from-view-id>/login.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>index</from-outcome>
+   <to-view-id>/logged/index.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>add_usuario</from-outcome>
+   <to-view-id>/area_public/cadastros/add_usuario.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <!-- INDEX -->
+ <navigation-rule>
+  <from-view-id>/logged/index.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>login</from-outcome>
+   <to-view-id>/login.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>manage_users</from-outcome>
+   <to-view-id>/area_func/manage_users.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <!-- CADASTROS -->
+ <navigation-rule>
+  <from-view-id>/area_public/cadastros/add_usuario.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>index</from-outcome>
+   <to-view-id>/logged/index.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>login</from-outcome>
+   <to-view-id>/login.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <!-- USERS MANAGE -->
+ <navigation-rule>
+  <from-view-id>/area_func/manage_users.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>index</from-outcome>
+   <to-view-id>/logged/index.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>login</from-outcome>
+   <to-view-id>/login.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>add_usuario</from-outcome>
+   <to-view-id>/area_public/cadastros/add_usuario.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <!--  -->
+ <application>
+  <message-bundle>resources.application</message-bundle>
+  <locale-config>
+   <default-locale>en</default-locale>
+  </locale-config>
+ </application>
+ <!--  
+ <lifecycle>
+  <phase-listener>br.unesp.sysmatema.controller.PhaseListenerController</phase-listener>
+ </lifecycle>-->
+</faces-config>

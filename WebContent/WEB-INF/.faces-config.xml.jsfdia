@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#login.xhtml" PATH="/login.xhtml"
+  SHAPE="208,32,50,57" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#login.xhtml:0" NAME="item"
+   PATH="/login.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="index::#logged#index.xhtml" NAME="output"
+    PATH="/logged/index.xhtml" TARGET="rules:#logged#index.xhtml"
+    TITLE="index" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="add_usuario::#area_public#cadastros#add_usuario.xhtml"
+    NAME="output1" PATH="/area_public/cadastros/add_usuario.xhtml"
+    TARGET="rules:#area_public#cadastros#add_usuario.xhtml"
+    TITLE="add_usuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#logged#index.xhtml"
+  PATH="/logged/index.xhtml" SHAPE="48,192,50,57" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#logged#index.xhtml:0" NAME="item"
+   PATH="/logged/index.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="login::#login.xhtml" NAME="output2"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="login" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="manage_users::#area_func#manage_users.xhtml"
+    NAME="output" PATH="/area_func/manage_users.xhtml"
+    TARGET="rules:#area_func#manage_users.xhtml" TITLE="manage_users" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#area_func#manage_users.xhtml"
+  PATH="/area_func/manage_users.xhtml" SHAPE="56,328,50,57" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#area_func#manage_users.xhtml:0" NAME="item"
+   PATH="/area_func/manage_users.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="index::#logged#index.xhtml" NAME="output"
+    PATH="/logged/index.xhtml" TARGET="rules:#logged#index.xhtml"
+    TITLE="index" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="login::#login.xhtml" NAME="output1"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="login" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="add_usuario::#area_public#cadastros#add_usuario.xhtml"
+    NAME="output2" PATH="/area_public/cadastros/add_usuario.xhtml"
+    TARGET="rules:#area_public#cadastros#add_usuario.xhtml"
+    TITLE="add_usuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#area_public#cadastros#add_usuario.xhtml"
+  PATH="/area_public/cadastros/add_usuario.xhtml" SHAPE="448,200,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#area_public#cadastros#add_usuario.xhtml:0"
+   NAME="item" PATH="/area_public/cadastros/add_usuario.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="index::#logged#index.xhtml" NAME="output"
+    PATH="/logged/index.xhtml" TARGET="rules:#logged#index.xhtml"
+    TITLE="index" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="login::#login.xhtml" NAME="output1"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="login" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>

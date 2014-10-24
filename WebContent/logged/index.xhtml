@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:decorate template="/template.xhtml">
+
+	<ui:define name="menu">
+		<p:submenu label="Menu Principal">
+			<p:menuitem value="Home" icon="ui-icon-home" action="index" />
+
+			<p:separator></p:separator>
+			
+			<p:menuitem value="Usuários" icon="ui-icon-person"
+				action="manage_users" />
+
+			<p:menuitem value="Reservas" icon="ui-icon-calendar" />
+
+			<p:menuitem value="Espaços" icon="ui-icon-disk" />
+
+			<p:menuitem value="Equipamentos" icon="ui-icon-disk" />
+
+			<p:menuitem value="Softwares" icon="ui-icon-disk" />
+
+			<p:menuitem value="Softwares/Licenças" icon="ui-icon-cart" />
+			
+			<p:menuitem value="Departamentos" icon="ui-icon-disk" />
+			
+		</p:submenu>
+
+	</ui:define>
+
+	<ui:define name="conteudo">	
+		Você está logado no Módulo <p:outputLabel value="#{loginController.levelPermissionUserLogged()}" />
+		
+	</ui:define>
+
+</ui:decorate>
+
+</html>
