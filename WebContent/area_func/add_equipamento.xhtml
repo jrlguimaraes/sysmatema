@@ -43,13 +43,18 @@
 				<p:inputText id="equipamentoValorAquisicao" value="#{equipamentoController.equipamento.valorAquisicao}" required="true"/>
 				
 				<p:outputLabel value="Data Aquisicao"/>
-				<p:inputMask id="equipamentoDataAquisicao" mask="99/99/2099" value="#{equipamentoController.equipamento.dataAquisicao}" required="true"/>
+				<p:calendar value="#{equipamentoController.equipamento.dataAquisicao}" required="true" converter="CalendarConverter" pattern="dd/MM/yyyy"/>
 				
+				<!-- 
+				<p:inputMask id="equipamentoDataAquisicao" mask="99/99/2099" value="#{equipamentoController.equipamento.dataAquisicao}" required="true" converter="CalendarConverter">
+					<f:convertDateTime dateStyle="short" pattern="dd/MM/yyyy" timeZone="GMT-3"/>
+				</p:inputMask>
+				 -->
 			</h:panelGrid>
 			
 			 <p:separator />
 			
-			<p:commandButton value="Salvar (not implemented)"/>
+			<p:commandButton value="Salvar" action="#{equipamentoController.salvarEquipamento()}"/>
 			<p:commandButton value="Descartar (not implemented)"/>
  		    					
 		</h:form>
