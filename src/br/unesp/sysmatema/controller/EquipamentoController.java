@@ -36,7 +36,7 @@ public class EquipamentoController extends GenericController {
 	public String salvarEquipamento() {
 		
 		equipamentoFacade.save(equipamento);
-		this.displayInfoMessageToUser("OPERÇÃO CONCLUIDA!");
+		this.displayInfoMessageToUser("OPERCAO CONCLUIDA!");
 		
 		return "sucesso";
 	}

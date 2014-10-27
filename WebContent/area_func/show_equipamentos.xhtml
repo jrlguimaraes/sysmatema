@@ -18,7 +18,7 @@
 	</ui:define>
 
 	<ui:define name="conteudo">
-		<h:form>
+		<h:form id="formEquipamentos">
 			<p:growl autoUpdate="true" />
 
 			<p:dataTable id="tabelaEquipamentos"
@@ -50,7 +50,11 @@
 				<p:column>
 					<f:facet name="header">Actions</f:facet>
 
-					<p:commandButton icon="ui-icon-pencil">
+					<p:commandButton icon="ui-icon-pencil"
+						onclick="EquipamentoDialogWidget.show()" update=":EquipamentoEditForm">
+						<f:setPropertyActionListener
+							target="#{equipamentoController.equipamento}"
+							value="#{equipamentos}" />
 					</p:commandButton>
 
 					<p:commandButton icon="ui-icon-note">
@@ -71,6 +75,8 @@
 		</h:form>
 
 		<p:separator />
+		
+		<ui:include src="/area_func/gui-component/equipamentoEditDialog.xhtml" />
 
 	</ui:define>
 
