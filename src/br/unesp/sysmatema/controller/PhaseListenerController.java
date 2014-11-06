@@ -21,7 +21,7 @@ public class PhaseListenerController extends GenericController implements PhaseL
 	private static final String FOLDER_FUNCIONARIO = "/area_func/.*";
 	private static final String FOLDER_ADMINISTRADOR = "^/area_admin/.*";
 
-
+	/*teste*/
 	@Override
 	public void afterPhase(PhaseEvent event) {
 
