@@ -29,7 +29,7 @@ public class LoginController extends GenericController {
 	 * metodo para validar e autenticar o usuario
 	 */
 	public String checkLogin() {	
-		
+		/*teste fork no gitHub*/
 		logger.warn("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX TESTANDO LOGGING XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 
 		UsuarioFacade usuarioFacade = new UsuarioFacade();
