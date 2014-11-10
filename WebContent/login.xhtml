@@ -22,18 +22,18 @@
 
 	<ui:define name="conteudo">
 		<h:form id="formLogin" rendered="#{not loginController.isLogged()}">
-
-			<h:panelGrid id="loginGrid" columns="3" cellpadding="4">
+	
+			<p:growl autoUpdate="true" id="msgLogin" />
+	
+			<h:panelGrid id="loginGrid" columns="2" cellpadding="4">
 
 				<h:outputText value="Email: " />
 				<p:inputText id="username" value="#{loginController.usuario.email}"
 					required="true" label="Email" />
-				<p:message for="username" display="email" />
 
 				<h:outputText value="Senha: " />
 				<p:password id="pwd" value="#{loginController.usuario.senha}"
 					required="true" label="Senha" />
-				<p:message for="pwd" display="senha" />
 
 			</h:panelGrid>
 
@@ -43,7 +43,7 @@
 			<br />
 			<br />
 			<br />
-			<p:messages id="messages" autoUpdate="true" closable="true" />
+
 		</h:form>
 	</ui:define>
 

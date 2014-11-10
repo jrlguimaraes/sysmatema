@@ -1,7 +1,7 @@
 package br.unesp.sysmatema.controller;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import org.apache.log4j.Logger;
@@ -14,7 +14,7 @@ import br.unesp.sysmatema.model.Usuario;
 /*
  * Classe de Controle de Login e redirecionamento com controle de tempo de sessa em web.xml
  */
-@SessionScoped
+@ViewScoped
 @ManagedBean
 public class LoginController extends GenericController {
 

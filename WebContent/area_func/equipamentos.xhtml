@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:decorate template="/template.xhtml">
+
+	<ui:define name="menu">
+		<p:submenu label="Menu">
+			<p:menuitem value="Novo Equipamento" icon="ui-icon-plus"
+				action="#{equipamentoController.abrirNovoEquipamento()}"
+				update=":pnEquipamentos" />
+
+			<p:menuitem value="Consultar Equipamento" icon="ui-icon-search" />
+
+			<p:menuitem value="Mostrar Equipamentos" icon="ui-icon-note"
+				action="#{equipamentoController.abrirMostrarEquipamento()}"
+				update=":pnEquipamentos" />
+		</p:submenu>
+	</ui:define>
+
+
+	<ui:define name="conteudo">
+		<h:panelGrid id="pnEquipamentos" width="100%">
+
+			<h:panelGrid
+				rendered="#{equipamentoController.abrirNovoEquipamento}">
+				<ui:include src="forms/add_equipamentos.xhtml" />
+			</h:panelGrid>
+
+			<h:panelGrid width="100%"
+				rendered="#{equipamentoController.abrirMostrarEquipamento}">
+				<ui:include src="forms/show_equipamentos.xhtml" />
+			</h:panelGrid>
+		</h:panelGrid>
+	</ui:define>
+
+</ui:decorate>
+</html>

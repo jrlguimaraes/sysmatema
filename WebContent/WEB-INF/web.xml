@@ -32,10 +32,10 @@
 	</context-param>
 	
 	<!-- Install slf4j bridge handler -->
-	<listener>
+	<!-- <listener>
 		<listener-class>
 		    	br.unesp.sysmatema.listener.LogListener
 		</listener-class>
-	</listener>
+	</listener> -->
 
 </web-app>
