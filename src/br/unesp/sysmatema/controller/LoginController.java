@@ -30,6 +30,7 @@ public class LoginController extends GenericController {
 	 */
 	public String checkLogin() {	
 		/*o que é isso?*/
+		/* Era pra gerar um arquivo de log na pasta /opt/glassfish4/glassfish/domains/domain1/logs */
 		logger.warn("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX TESTANDO LOGGING XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 
 		UsuarioFacade usuarioFacade = new UsuarioFacade();
