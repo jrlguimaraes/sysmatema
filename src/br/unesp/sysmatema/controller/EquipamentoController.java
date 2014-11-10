@@ -17,12 +17,16 @@ public class EquipamentoController extends GenericController {
 	private Equipamento equipamento = new Equipamento();
 	private List<Equipamento> equipamentos;
 	
+	private boolean abrirNovoEquipamento = false;
+	private boolean abrirMostrarEquipamento = false;
+	
 	public Equipamento getEquipamento() {
 		return equipamento;
 	}
 	public void setEquipamento(Equipamento equipamento) {
 		this.equipamento = equipamento;
 	}
+	
 	public List<Equipamento> getEquipamentos() {
 		if (this.equipamentos == null) {
 			this.equipamentos = this.equipamentoFacade.listAll();
@@ -38,11 +42,35 @@ public class EquipamentoController extends GenericController {
 		equipamentoFacade.save(equipamento);
 		this.displayInfoMessageToUser("OPERCAO CONCLUIDA!");
 		
+		/*fazer um padrão de retorno de sucesso com o Dialog Generico 
+		 * dizendo que foi efetudo com sucesso e dois botões 
+		 * "novo" ou "pagina inicial"
+		 * From: @Hugo
+		 * */
+		
 		return "sucesso";
 	}
 	
 	public void reset() {
 		this.equipamento = null;
+	}
+	
+	
+	public boolean isAbrirNovoEquipamento() {
+		return abrirNovoEquipamento;
+	}
+	public boolean isAbrirMostrarEquipamento() {
+		return abrirMostrarEquipamento;
+	}
+	
+	/*metodos para controle de render de formulario da pagina equipamentos.xhtml*/
+	public void abrirNovoEquipamento() {
+		this.abrirNovoEquipamento = true;
+		this.abrirMostrarEquipamento = false;
+	}
+	public void abrirMostrarEquipamento() {
+		this.abrirNovoEquipamento = false;
+		this.abrirMostrarEquipamento = true;
 	}
 
 }

@@ -2,7 +2,7 @@ package br.unesp.sysmatema.controller;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import org.primefaces.event.FlowEvent;
 
@@ -15,7 +15,7 @@ import br.unesp.sysmatema.model.Pessoa;
 import br.unesp.sysmatema.model.Usuario;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class CadastroController extends GenericController{
 
 	private Pessoa pessoa;
