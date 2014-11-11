@@ -1,0 +1,84 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:form id="cadastro">               
+		    <p:growl id="growl" sticky="true" showDetail="true" />
+		    <p:wizard flowListener="#{usuarioController.onFlowProcess}"
+		backLabel="Voltar" nextLabel="Seguinte">
+
+		<p:tab id="categoria" title="Categoria">
+			<p:messages />
+
+			<h:outputText value="Categoria: " />
+			<p:selectOneMenu value="#{usuarioController.perfil}">
+				<f:selectItem itemLabel="Selecione..." />
+				<f:selectItem itemLabel="Aluno" itemValue='1' />
+				<f:selectItem itemLabel="Docente" itemValue='2' />
+				<f:selectItem itemLabel="Funcionário" itemValue='3' />
+
+				<p:ajax event="change" listener="#{usuarioController.verificar()}"
+					update=":cadastro" />
+
+			</p:selectOneMenu>
+
+			<h:panelGrid columns="2" rendered="#{usuarioController.aluno}">
+				<ui:include src="/area_public/forms/form_aluno.xhtml" />
+			</h:panelGrid>
+			<h:panelGrid columns="2" rendered="#{usuarioController.docente}">
+				<ui:include src="/area_public/forms/form_docente.xhtml" />
+			</h:panelGrid>
+			<h:panelGrid columns="2" rendered="#{usuarioController.funcionario}">
+				<ui:include src="/area_public/forms/form_funcionario.xhtml" />
+			</h:panelGrid>
+		</p:tab>
+				
+				
+		        <p:tab id="pessoal" title="Pessoal">
+		           
+		                <h:panelGrid columns="2">
+
+				<h:outputText value="Nome: " />
+				<h:inputText value="#{usuarioController.pessoa.nome}" />
+				<h:outputText value="Sobrenome: " />
+				<h:inputText value="#{usuarioController.pessoa.sobrenome}" />
+				<h:outputText value="CPF: " />
+				<h:inputText value="#{usuarioController.pessoa.cpf}" />
+				<h:outputText value="Tel: " />
+				<h:inputText value="#{usuarioController.pessoa.tel}" />
+				<h:outputText value="Cel: " />
+				<h:inputText value="#{usuarioController.pessoa.cel}" />
+			</h:panelGrid>
+
+		        </p:tab>
+
+		<p:tab id="endereco" title="Endereço">
+			<p:messages />
+			<h:panelGrid columns="2" columnClasses="label, value">
+				<h:outputText value="Endereco: " />
+				<h:inputText value="#{usuarioController.pessoa.endereco.descricao}" />
+			</h:panelGrid>
+		</p:tab>
+		
+		 
+		        <p:tab id="login" title="Login">
+			<p:messages />
+			<h:panelGrid columns="2" cellpadding="0">
+				<h:outputText value="Email: " />
+				<h:inputText value="#{usuarioController.pessoa.usuario.email}" />
+				<h:outputText value="Senha: " />
+				<h:inputSecret value="#{usuarioController.pessoa.usuario.senha}" />
+
+			</h:panelGrid>
+			<h:panelGrid columns="2" columnClasses="label, value">
+				<p:commandButton value="Submit"
+					action="#{usuarioController.cadastrar}" update="growl" />
+			</h:panelGrid>
+		</p:tab>
+	</p:wizard>
+</h:form>
+</html>

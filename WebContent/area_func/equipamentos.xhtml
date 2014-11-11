@@ -9,6 +9,7 @@
 
 	<ui:define name="menu">
 		<p:submenu label="Menu">
+			<p:menuitem value="Home" icon="ui-icon-home" action="index" />
 			<p:menuitem value="Novo Equipamento" icon="ui-icon-plus"
 				action="#{equipamentoController.abrirNovoEquipamento()}"
 				update=":pnEquipamentos" />
@@ -25,14 +26,13 @@
 	<ui:define name="conteudo">
 		<h:panelGrid id="pnEquipamentos" width="100%">
 
-			<h:panelGrid
-				rendered="#{equipamentoController.abrirNovoEquipamento}">
-				<ui:include src="forms/add_equipamentos.xhtml" />
+			<h:panelGrid rendered="#{equipamentoController.abrirNovoEquipamento}">
+				<ui:include src="/area_func/forms/form_addEquipamentos.xhtml" />
 			</h:panelGrid>
 
 			<h:panelGrid width="100%"
 				rendered="#{equipamentoController.abrirMostrarEquipamento}">
-				<ui:include src="forms/show_equipamentos.xhtml" />
+				<ui:include src="/area_func/forms/form_showEquipamentos.xhtml" />
 			</h:panelGrid>
 		</h:panelGrid>
 	</ui:define>
