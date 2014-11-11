@@ -16,13 +16,14 @@ import br.unesp.sysmatema.model.Usuario;
 
 @ManagedBean
 @ViewScoped
-public class CadastroController extends GenericController{
+public class UsuarioController extends GenericController{
 
 	private Pessoa pessoa;
 	private Funcionario pessoaFuncionario;
 	private Docente pessoaDocente;
 	private Aluno pessoaAluno;
 
+	private boolean openFormUser = false;
 	private boolean funcionario = false;
 	private boolean docente = false;
 	private boolean aluno = false;
@@ -169,5 +170,17 @@ public class CadastroController extends GenericController{
 	public void setFuncionario(boolean funcionario) {
 		this.funcionario = funcionario;
 	}
+
+
+	public boolean isOpenFormUser() {
+		return openFormUser;
+	}
+
+
+	public void setOpenFormUser() {
+		this.openFormUser = true;
+	}
+	/*abaixo: metodos para abrir outros forms*/
+
 	
 }
